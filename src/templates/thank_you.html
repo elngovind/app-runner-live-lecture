@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Thank You - AWS Courses{% endblock %}
+
+{% block content %}
+<section class="thank-you-page">
+    <div class="container">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Thank You for Your Purchase!</h1>
+            <p>Your order has been successfully processed.</p>
+            
+            <div class="order-confirmation">
+                <h3>Order Confirmation</h3>
+                <p>A confirmation email has been sent to your email address with your order details and access instructions.</p>
+            </div>
+            
+            <div class="next-steps">
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Check your email for course access instructions</li>
+                    <li>Log in to your account to access your purchased courses</li>
+                    <li>Start learning and advance your AWS skills!</li>
+                </ul>
+            </div>
+            
+            <div class="thank-you-actions">
+                <a href="{{ url_for('home') }}" class="btn btn-primary">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}AWS Courses Marketplace - Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Advance Your Cloud Career with AWS Certifications</h1>
+        <p>Learn from industry experts and get certified in Amazon Web Services</p>
+        <a href="#courses" class="btn btn-primary">Explore Courses</a>
+    </div>
+</section>
+
+<section class="courses" id="courses">
+    <div class="container">
+        <h2>Featured AWS Courses</h2>
+        <div class="course-grid">
+            {% for course in courses %}
+            <div class="course-card">
+                <div class="course-image">
+                    <img src="{{ url_for('static', filename='images/' + course.image) }}" alt="{{ course.title }}">
+                    <span class="course-level {{ course.level.lower() }}">{{ course.level }}</span>
+                </div>
+                <div class="course-content">
+                    <h3>{{ course.title }}</h3>
+                    <p>{{ course.description }}</p>
+                    <div class="course-meta">
+                        <span><i class="far fa-clock"></i> {{ course.duration }}</span>
+                    </div>
+                    <div class="course-footer">
+                        <span class="course-price">${{ "%.2f"|format(course.price) }}</span>
+                        <div class="course-actions">
+                            <a href="{{ url_for('course_detail', course_id=course.id) }}" class="btn btn-secondary">Details</a>
+                            <a href="{{ url_for('add_to_cart', course_id=course.id) }}" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Why Choose Our AWS Courses?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Industry Recognized</h3>
+                <p>Our courses are designed to prepare you for official AWS certification exams.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Hands-on Labs</h3>
+                <p>Practice with real AWS services through guided hands-on lab exercises.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Expert Instructors</h3>
+                <p>Learn from AWS certified professionals with years of industry experience.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Lifetime Access</h3>
+                <p>Get unlimited access to course materials and future updates.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Ready to advance your AWS skills?</h2>
+        <p>Join thousands of successful professionals who have boosted their careers with our courses.</p>
+        <a href="#courses" class="btn btn-primary">Get Started Today</a>
+    </div>
+</section>
+{% endblock %}

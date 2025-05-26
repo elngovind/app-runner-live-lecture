@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - AWS Courses{% endblock %}
+
+{% block content %}
+<section class="about-page">
+    <div class="container">
+        <h1>About AWS Courses Marketplace</h1>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/about-us.jpg') }}" alt="About AWS Courses">
+            </div>
+            
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>At AWS Courses Marketplace, our mission is to empower individuals and organizations with the knowledge and skills needed to succeed in the cloud computing era. We believe that quality education should be accessible to everyone, which is why we've created a platform that offers comprehensive AWS training courses at competitive prices.</p>
+                
+                <h2>Who We Are</h2>
+                <p>We are a team of AWS certified professionals and cloud computing enthusiasts who are passionate about sharing our knowledge and experience. Our instructors have years of hands-on experience working with AWS services and have helped thousands of students achieve their certification goals.</p>
+                
+                <h2>What We Offer</h2>
+                <p>Our courses are designed to prepare you for AWS certification exams while providing practical, real-world knowledge that you can apply immediately. Each course includes:</p>
+                <ul>
+                    <li>Comprehensive video lectures</li>
+                    <li>Hands-on lab exercises</li>
+                    <li>Practice exams</li>
+                    <li>Downloadable resources</li>
+                    <li>Lifetime access to course materials</li>
+                    <li>Certificate of completion</li>
+                </ul>
+                
+                <h2>Our Values</h2>
+                <p>We are committed to:</p>
+                <ul>
+                    <li><strong>Quality:</strong> Providing the highest quality educational content</li>
+                    <li><strong>Relevance:</strong> Keeping our courses up-to-date with the latest AWS services and best practices</li>
+                    <li><strong>Support:</strong> Offering excellent student support throughout your learning journey</li>
+                    <li><strong>Community:</strong> Building a community of cloud professionals who can learn from each other</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>John Doe</h3>
+                    <p>AWS Solutions Architect Professional</p>
+                    <p>15+ years of experience in cloud computing</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Jane Smith</h3>
+                    <p>AWS DevOps Engineer Professional</p>
+                    <p>10+ years of experience in DevOps and CI/CD</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Michael Johnson</h3>
+                    <p>AWS Security Specialist</p>
+                    <p>12+ years of experience in cloud security</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}{{ course.title }} - AWS Courses{% endblock %}
+
+{% block content %}
+<section class="course-detail">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="{{ url_for('home') }}">Home</a> &gt; 
+            <span>{{ course.title }}</span>
+        </div>
+        
+        <div class="course-detail-content">
+            <div class="course-detail-main">
+                <div class="course-header">
+                    <h1>{{ course.title }}</h1>
+                    <span class="course-level {{ course.level.lower() }}">{{ course.level }}</span>
+                </div>
+                
+                <div class="course-image">
+                    <img src="{{ url_for('static', filename='images/' + course.image) }}" alt="{{ course.title }}">
+                </div>
+                
+                <div class="course-description">
+                    <h2>Course Description</h2>
+                    <p>{{ course.description }}</p>
+                    
+                    <h2>What You'll Learn</h2>
+                    <ul class="course-benefits">
+                        <li>Understand core AWS services, uses, and basic architecture best practices</li>
+                        <li>Design and deploy scalable, highly available, and fault-tolerant systems on AWS</li>
+                        <li>Implement and deploy applications on Amazon Web Services</li>
+                        <li>Select the appropriate AWS service based on compute, data, or security requirements</li>
+                        <li>Identify appropriate use of AWS architectural best practices</li>
+                        <li>Estimate AWS costs and identify cost control mechanisms</li>
+                    </ul>
+                    
+                    <h2>Course Curriculum</h2>
+                    <div class="curriculum-section">
+                        <div class="curriculum-header">
+                            <h3>Module 1: Introduction to AWS</h3>
+                            <span class="module-length">4 hours</span>
+                        </div>
+                        <ul class="curriculum-items">
+                            <li>Overview of Cloud Computing</li>
+                            <li>AWS Global Infrastructure</li>
+                            <li>AWS Management Console and CLI</li>
+                            <li>AWS Identity and Access Management (IAM)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="curriculum-section">
+                        <div class="curriculum-header">
+                            <h3>Module 2: AWS Core Services</h3>
+                            <span class="module-length">8 hours</span>
+                        </div>
+                        <ul class="curriculum-items">
+                            <li>Amazon EC2 and Auto Scaling</li>
+                            <li>Amazon VPC and Networking</li>
+                            <li>Amazon S3 and Storage Options</li>
+                            <li>Amazon RDS and Database Services</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="curriculum-section">
+                        <div class="curriculum-header">
+                            <h3>Module 3: Advanced Architecture</h3>
+                            <span class="module-length">6 hours</span>
+                        </div>
+                        <ul class="curriculum-items">
+                            <li>High Availability and Fault Tolerance</li>
+                            <li>Decoupling Solutions</li>
+                            <li>Serverless Architecture</li>
+                            <li>Microservices and Containers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="course-detail-sidebar">
+                <div class="course-info-card">
+                    <div class="course-price-section">
+                        <span class="course-price">${{ "%.2f"|format(course.price) }}</span>
+                    </div>
+                    
+                    <div class="course-meta-info">
+                        <div class="meta-item">
+                            <i class="far fa-clock"></i>
+                            <span>Duration: {{ course.duration }}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-signal"></i>
+                            <span>Level: {{ course.level }}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-laptop"></i>
+                            <span>Online Access: Lifetime</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certificate: Yes</span>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ url_for('add_to_cart', course_id=course.id) }}" class="btn btn-primary btn-block">Add to Cart</a>
+                    
+                    <div class="course-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>30-Day Money-Back Guarantee</span>
+                    </div>
+                </div>
+                
+                <div class="instructor-card">
+                    <h3>About the Instructor</h3>
+                    <div class="instructor-info">
+                        <div class="instructor-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="instructor-details">
+                            <h4>AWS Certified Expert</h4>
+                            <p>AWS Solutions Architect & DevOps Professional</p>
+                        </div>
+                    </div>
+                    <p>Our instructors are AWS certified professionals with years of hands-on experience building and deploying solutions on AWS.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
