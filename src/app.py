@@ -5,6 +5,11 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-for-testing')
 
+# Add context processor to make 'now' available in all templates
+@app.context_processor
+def inject_now():
+    return {'now': datetime.now()}
+
 # Sample course data
 courses = [
     {
